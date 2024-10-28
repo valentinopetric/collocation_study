@@ -1,0 +1,55 @@
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environment directories
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Ignore distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheelhouse/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Ignore coverage reports
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+*.cover
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Ignore Python Bytecode
+*.pyc
+*.pyo
+
+# Ignore logs
+*.log
+
+# Ignore configuration files
+*.pdb
+*.orig
+
+# Ignore other common files
+.DS_Store
+*.swp
+
+
+!data/.gitkeep
