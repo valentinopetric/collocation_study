@@ -1,67 +1,83 @@
 import plotly.graph_objects as go
+import seaborn as sns
+import matplotlib.pyplot as plt
 import pandas as pd
-import numpy as np
 
-def plot_experiment_range(df: pd.DataFrame, col_name: str):
-    # Define experiment time ranges and fill colors
-    experiments = {
-        "Doors opened": [("2024-10-16 09:15", "2024-10-16 09:47")],
-        "Hall opened": [("2024-10-16 20:55", "2024-10-16 21:25")],
-        "Indoor Room Air Exchange": [("2024-10-17 18:20", "2024-10-17 18:50")],
-        "Exercise (Rowing)": [("2024-10-19 10:40", "2024-10-19 10:54"), ("2024-10-19 11:24", "2024-10-19 11:41")],
-        "Human Presence": [("2024-10-19 12:02", "2024-10-19 12:53"), ("2024-10-19 13:34", "2024-10-19 14:08")],
-        "Diffuser (Water)": [("2024-10-19 14:33", "2024-10-19 14:51")],
-        "Diffuser (Oil)": [("2024-10-19 15:06", "2024-10-19 15:20")],
-        "Car": [("2024-10-19 15:33", "2024-10-19 15:38"), ("2024-10-19 15:53", "2024-10-19 15:58")],
-        "Gas Burner": [("2024-10-20 13:10", "2024-10-20 13:40"), ("2024-10-20 14:00", "2024-10-20 14:30")],
-        "Candle": [("2024-10-20 14:51", "2024-10-20 15:15")]
-    }
+import json
+from datetime import datetime
+import os
+
+
+def plot_experiment_range(df: pd.DataFrame, col_names: list,start_date: str="2024-10-16 07:15", end_date: str="2024-10-20 17:15"):
+
     
-    colors = {
-        "Doors opened": 'rgba(255, 0, 0, 0.3)',
-        "Hall opened": 'rgba(0, 0, 255, 0.3)',
-        "Indoor Room Air Exchange": 'rgba(0, 255, 0, 0.3)',
-        "Exercise (Rowing)": 'rgba(255, 165, 0, 0.3)',
-        "Human Presence": 'rgba(255, 20, 147, 0.3)',
-        "Diffuser (Water)": 'rgba(30, 144, 255, 0.3)',
-        "Diffuser (Oil)": 'rgba(75, 0, 130, 0.3)',
-        "Car": 'rgba(128, 128, 128, 0.3)',
-        "Gas Burner": 'rgba(255, 69, 0, 0.3)',
-        "Candle": 'rgba(255, 223, 0, 0.3)'
-    }
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'experiments.json'), 'r') as f:
+        data = json.load(f)
+    
+    experiments = data["experiments"]
+    colors = data["colors"]
+    
+    plot_start = datetime.fromisoformat(start_date)
+    plot_end = datetime.fromisoformat(end_date)
 
-    # Create the plotly figure
     fig = go.Figure()
+    
+    for col_name in col_names:
+        fig.add_trace(go.Scatter(x=df.index, y=df[col_name], mode='lines', name=col_name))
 
-    # Plot the main time series data
-    fig.add_trace(go.Scatter(x=df.index, y=df[col_name], mode='lines', name='Time Series Data'))
-
-    # Loop through experiments and add shaded regions
     for experiment, times in experiments.items():
         for start_time, end_time in times:
-            fig.add_trace(go.Scatter(
-                x=[start_time, start_time, end_time, end_time],
-                y=[min(df[col_name]), max(df[col_name]), max(df[col_name]), min(df[col_name])],
-                fill='toself',
-                fillcolor=colors[experiment],
-                line=dict(color='rgba(255, 255, 255, 0)'),  # Transparent outline
-                name=experiment
-            ))
+            start = datetime.fromisoformat(start_time)
+            end = datetime.fromisoformat(end_time)
+            if start <= plot_end and end >= plot_start:
+                fig.add_trace(go.Scatter(
+                    x=[start_time, start_time, end_time, end_time],
+                    y=[df[col_names].min().min(), df[col_names].max().max(), df[col_names].max().max(), df[col_names].min().min()],
+                    fill='toself',
+                    fillcolor=colors[experiment],
+                    line=dict(color='rgba(255, 255, 255, 0)'),  
+                    name=experiment
+                ))
 
-            # Add vertical lines as separators
-            fig.add_shape(
-                type="line",
-                x0=start_time, y0=min(df[col_name]), x1=end_time, y1=max(df[col_name]),
-                line=dict(color=colors[experiment].replace('0.3', '1.0'), width=2),
-            )
-
-    # Update layout with titles and legends
     fig.update_layout(
         title='Time Series Plot with Experiment Phases Highlighted',
         xaxis_title='Timestamp',
-        yaxis_title=col_name,
-        showlegend=True
+        showlegend=True,
+        xaxis=dict(
+            range=[start_date, end_date] if start_date and end_date else [df.index.min(), df.index.max()]
+        ),
+        width=1200, 
+        height=700
+    )
+    
+    fig.update_xaxes(rangeslider_visible=True)
+
+    fig.show()
+
+def plot_correlation_matrix(df: pd.DataFrame, title: str = "Correlation Matrix"):
+    # Calculate the correlation matrix
+    corr_matrix = df.corr()
+
+    plt.figure(figsize=(12, 10))
+    sns.set(style='white')
+    
+    cmap = sns.diverging_palette(220, 10, as_cmap=True)
+
+    
+    sns.heatmap(
+        corr_matrix, 
+        annot=True,         
+        fmt=".2f",          
+        cmap=cmap,          
+        square=True,        
+        cbar_kws={"shrink": .8},  
+        linewidths=.5,      
+        annot_kws={"size": 10}    
     )
 
-    # Display the plot
-    fig.show()
+    plt.title(title, fontsize=16)
+    plt.xticks(rotation=45, ha='right', fontsize=10)
+    plt.yticks(rotation=0, fontsize=10)
+    plt.tight_layout()  
+    
+    plt.show()
