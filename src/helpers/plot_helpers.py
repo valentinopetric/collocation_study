@@ -55,8 +55,6 @@ def plot_experiment_range(df: pd.DataFrame, col_names: list,start_date: str="202
     fig.show()
 
 def plot_correlation_matrix(df: pd.DataFrame, title: str = "Correlation Matrix"):
-    # Calculate the correlation matrix
-    corr_matrix = df.corr()
 
     plt.figure(figsize=(12, 10))
     sns.set(style='white')
@@ -65,7 +63,7 @@ def plot_correlation_matrix(df: pd.DataFrame, title: str = "Correlation Matrix")
 
     
     sns.heatmap(
-        corr_matrix, 
+        df, 
         annot=True,         
         fmt=".2f",          
         cmap=cmap,          
@@ -81,3 +79,4 @@ def plot_correlation_matrix(df: pd.DataFrame, title: str = "Correlation Matrix")
     plt.tight_layout()  
     
     plt.show()
+    
