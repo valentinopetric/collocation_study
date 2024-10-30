@@ -2,5 +2,10 @@
     "kaiterra":["pm_10", "pm_2.5", "tvoc_ppb", "co2", "humidity", "temperature", "overall_index", "primary_pollutant"],
     "inbiot":["temperature", "humidity", "co2", "formaldehyde", "tvoc", "pm_1.0", "pm_4.0", "pm_10", "pm_2.5"],
     "smart_sense":["co2", "temperature", "humidity", "indoor_nox_index", "indoor_voc_index", "pm_1.0", "pm_2.5", "pm_10"],
-    "ls":["co2", "o3", "co", "pm_10", "pm_2.5", "p1", "humidity", "temperature", "pressure", "no2"]
+    "ls":["co2", "o3", "co", "pm_10", "pm_2.5", "tvoc", "humidity", "temperature", "pressure", "no2"],
+    "ref_palas":["pm_1.0", "pm_2.5", "pm_4.0", "pm_10", "pm_tot", "co2","voc", "cn", "m1_0", "m2_0", "m3_0", "x10_dcn", "x16_dcn", "x50_dcn",
+        "x84_dcn", "x90_dcn", "temperature", "pressure", "humidity","aqi_palas", "infection_risk_index", "volume_flow", "power_volume_flow",
+        "global_error", "dcn"],
+    "wings_outdoors":["no2", "o3", "so2", "co", "pm_1.0", "pm_2.5", "pm_10", "no", "temperature", "humidity", "pressure", "noise", "device_id"],
+    "wings_indoors":["co2", "tvoc", "co", "pm_1.0", "pm_2.5", "pm_10","temperature", "humidity", "pressure", "device_id"]
 }
