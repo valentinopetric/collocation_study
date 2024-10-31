@@ -31,6 +31,22 @@ def transform_diff_avg(df:pd.DataFrame):
        
               
     return diff_averages_df
+
+def transform_diff_experiments(df:pd.DataFrame):
+    
+    df_diff = df.pct_change() * 100
+    
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'../json','experiments.json'), 'r') as f:
+        data = json.load(f)
+    
+    events = data["experiments"]
+    df_exp_full = pd.DataFrame()
+    
+    for _, times in events.items():
+        for start_time, end_time in times:
+            df_exp_full = pd.concat([df_exp_full,df_diff[start_time:end_time]],axis=0)
+    
+    return df_exp_full
     
 
 def get_device_data(device_id,indoor=True,start_date = '2024-10-16 05:00:00',end_date = '2024-10-21 00:00:00'):
