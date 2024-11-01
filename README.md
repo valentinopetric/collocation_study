@@ -13,7 +13,10 @@ For a detailed event analysis, the mean difference percentage was calculated for
 
 ### indoors
 
-![Correlation matrix for airwings indoor](images/air_wings_indoor/corr.png)
+### PM particles
 
-
-
+<div style="display: flex; justify-content: space-between;">
+    <img src="images/air_wings_indoor/pm/corr.png" alt="Correlation Matrix pm10" width="30%">
+    <img src="images/air_wings_indoor/pm/pm1.0.png" alt="Correlation Matrix pm1.0" width="30%">
+    <img src="images/air_wings_indoor/pm/pm2.5.png" alt="Correlation Matrix pm2.5" width="30%">
+</div>
