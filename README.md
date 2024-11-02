@@ -294,13 +294,15 @@ There is an offset in measurements for each sensor when compared to the referenc
 ### Pressure
 
 
-There is perfect correlation between on all senors humidity readings 
+There is perfect correlation between on all senors humidity readings but still there is offset in measurments.
 
 ![Correlation matrix pressure](images/all_sensors/pressure/corr.png)
 
-![Perc diff average temperature](images/all_sensors/pressure/diff_avg.png)
+![boxplot pressure](images/all_sensors/pressure/boxplot.png)
 
-![diff correlation for events temperature](images/all_sensors/temperature/diff_corr.png)
+![pressure timeseries](images/all_sensors/pressure/timeseries.png)
+
+
 
 
 
