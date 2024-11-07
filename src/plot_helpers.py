@@ -57,7 +57,7 @@ def plot_experiment_range(df: pd.DataFrame, col_names: list,start_date: str="202
     fig = go.Figure()
     
     for col_name in col_names:
-        fig.add_trace(go.Scatter(x=df.index, y=df[col_name], mode='lines', name=col_name))
+        fig.add_trace(go.Scatter(x=df.loc[start_date:end_date].index, y=df[col_name], mode='lines', name=col_name))
 
     for experiment, times in experiments.items():
         for start_time, end_time in times:
