@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 import os
 
-def plot_range(df: pd.DataFrame, col_names: list,start_date: str="2024-10-16 07:15", end_date: str="2024-10-20 17:15",min_value:int=None,max_value:int=None):
+def plot_range(df: pd.DataFrame, col_names: list,start_date: str="2024-10-16 07:15", end_date: str="2024-11-02 17:15",min_value:int=None,max_value:int=None):
     
     plot_start = datetime.fromisoformat(start_date)
     plot_end = datetime.fromisoformat(end_date)
@@ -39,7 +39,7 @@ def plot_range(df: pd.DataFrame, col_names: list,start_date: str="2024-10-16 07:
     fig.show()
     
 
-def plot_experiment_range(df: pd.DataFrame, col_names: list,start_date: str="2024-10-16 07:15", end_date: str="2024-10-20 17:15",min_value:int=None,max_value:int=None):
+def plot_experiment_range(df: pd.DataFrame, col_names: list,start_date: str="2024-10-16 07:15", end_date: str="2024-11-02 17:15",min_value:int=None,max_value:int=None):
 
     
     with open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'../json','experiments.json'), 'r') as f:
@@ -57,7 +57,7 @@ def plot_experiment_range(df: pd.DataFrame, col_names: list,start_date: str="202
     fig = go.Figure()
     
     for col_name in col_names:
-        fig.add_trace(go.Scatter(x=df.loc[start_date:end_date].index, y=df[col_name], mode='lines', name=col_name))
+        fig.add_trace(go.Scatter(x=df.index, y=df[col_name], mode='lines', name=col_name))
 
     for experiment, times in experiments.items():
         for start_time, end_time in times:
