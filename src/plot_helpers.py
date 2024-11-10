@@ -6,6 +6,7 @@ import pandas as pd
 import json
 from datetime import datetime
 import os
+ 
 
 def plot_range(df: pd.DataFrame, col_names: list,start_date: str="2024-10-16 07:15", end_date: str="2024-11-02 17:15",min_value:int=None,max_value:int=None):
     
@@ -93,7 +94,7 @@ def plot_experiment_range(df: pd.DataFrame, col_names: list,start_date: str="202
 
 def plot_correlation_matrix(df: pd.DataFrame, title: str = "Correlation Matrix"):
 
-    plt.figure(figsize=(12, 10))
+    plt.figure(figsize=(18, 16))
     sns.set(style='white')
     
     cmap = sns.diverging_palette(220, 10, as_cmap=True)

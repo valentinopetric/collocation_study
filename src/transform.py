@@ -49,7 +49,7 @@ def transform_diff_experiments(df:pd.DataFrame):
     return df_exp_full
     
 
-def get_device_data(device_id,indoor=True,start_date = '2024-10-16 05:00:00',end_date = '2024-11-01 00:00:00'):
+def get_device_data(device_id,indoor=True,start_date = '2024-10-16 05:00:00',end_date = '2024-11-04 00:00:00'):
     
     if indoor:
         r = requests.get(f"https://airwings-europe.wings-ict-solutions.eu/api/realvaluesindoor?", headers={"x-api-key": "804t9Tges45YyXUJ6GF4gfds45aretEW43w"}, params={"raw": "true",
@@ -72,7 +72,7 @@ def get_device_data(device_id,indoor=True,start_date = '2024-10-16 05:00:00',end
     
     return df
 
-def get_all_devices_data(device_ids,indoor=True,start_date = '2024-10-16 05:00:00',end_date = '2024-10-21 00:00:00'):
+def get_all_devices_data(device_ids,indoor=True,start_date = '2024-10-16 05:00:00',end_date = '2024-11-04 00:00:00'):
     
     df_full = pd.DataFrame()
 
