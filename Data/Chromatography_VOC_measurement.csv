@@ -1,0 +1,10 @@
+Time;Note;Flow rate (L/min);Sampling time (min);Air volume (L);Methylene chloride (µg/m3);2-methylpentane (µg/m3);Methylcyclopentane (µg/m3);Chloroform (µg/m3);2-methylhexane (µg/m3);Cyclohexane (µg/m3);Benzene (µg/m3);Heptane (µg/m3);Trichloroethylene (µg/m3);Methylcyclohexane (µg/m3);Toluene (µg/m3);Tetrachloroethylene (µg/m3);Ethylbenzene (µg/m3);m,p-Xylene (µg/m3);o-Xylene (µg/m3);Styrene (µg/m3);1,3,5-trimethylbenzene (µg/m3);1,4 -dichlorobenzene (µg/m3)
+11:13;Before experiment with a car (VOC) indoors;0.0293;20;0.586;0.004;0;2.138;0.137;0.478;0.025;0.063;0.011;0;0.584;38.4;0.226;0.859;1.461;1.11;0.501;0.23;0.009
+11:14;Before experiment with a car (VOC) outdoors;0.0283;24.93;0.706;0.008;0;0.107;0.159;1.535;0.029;0.05;0.115;0;0.395;36.7;0.281;0.922;1.362;1.06;1.032;0.144;0.002
+11:47;During experiment with a car (VOC) outdoors;0.0283;10.09;0.286;0.075;0.846;3.589;0.487;12.173;0.171;0.113;6.517;0.07;1.759;161.7;0.464;1.921;3.108;2.949;13.548;0.317;0.008
+11:55;During experiment with a car (VOC) indoors;0.0293;10;0.293;0.007;0;4.44;0.045;4.487;0.075;0.056;0.031;0;0.107;56;0.358;0.969;1.366;0.885;0.501;0.233;0.018
+12:37;Before experiment with a diffuser (VOC) indoors;0.0293;20;0.586;13.858;1.217;3.118;0.509;11.744;101.986;11.926;6.095;0.079;3.967;99.2;0.326;2.355;4.109;3.084;15.648;0.397;0.009
+13:00;During experiment with a diffuser (VOC) indoors;0.0293;15;0.44;0.006;0;0.106;0.081;0.831;0.011;0.058;0.056;0;0.319;2;0.249;0.959;1.387;0.971;0.901;0.223;0.011
+13:32;During experiment with a Gas Burner (VOC) indoors;0.0293;15;0.44;0.002;0;0.018;0.093;0.635;0.005;0.052;0.038;0;0.214;35.5;0.192;0.734;1.006;0.714;0.671;0.256;0.02
+14:26;Before experiment with a Candle (VOC) indoors;0.0293;15;0.44;62.11;1.675;16.397;0.628;18.459;175.039;82.353;12.991;0.182;2.697;128.8;0.412;2.163;3.886;3.511;22.857;0.375;0.013
+14:58;During experiment with a Candle (VOC) indoors;0.0293;15;0.44;0.005;0;2.674;0.044;2.379;0.03;0.628;0.062;0;1.773;56.6;0.263;0.706;0.944;0.681;0.782;0.214;0.007
