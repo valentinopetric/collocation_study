@@ -12,6 +12,9 @@ The project involves collecting and analyzing data from multiple sensors placed 
   - [`Data_downloading.ipynb`](Data_downloading.ipynb): Jupyter notebook for downloading and processing the dataset from Google Drive
   - Data will be stored in the `./data` directory
 
+- **Visualization and Analysis**:
+  - [`graphs.ipynb`](graphs.ipynb): Jupyter notebook for visualizing sensor data across different experiments and comparing readings from various sensors
+
 - **Experiment Documentation**:
   - [`experiments.json`](experiments.json): JSON file containing the timing information for all experiments conducted during the study
 
