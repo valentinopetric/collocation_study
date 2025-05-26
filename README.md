@@ -47,3 +47,21 @@ The data collected includes:
 ## Getting Started
 
 1. Clone the repository:
+
+```git clone https://github.com/yourusername/collocation_study.git cd collocation_study```
+
+2. Install required dependencies:
+
+```pip install -r requirements.txt```
+
+3. Download the dataset:
+- Run the `Data_downloading.ipynb` notebook to fetch and organize the data files
+- The data will be downloaded from Google Drive and stored in the `./data` directory
+
+4. Explore and visualize experiments:
+- Open the `graphs.ipynb` notebook
+- Select an experiment from the available options
+- Generate comparison charts for CO2 and PM10 measurements
+- The charts show data from all sensors alongside the reference device
+
+
